@@ -1,0 +1,44 @@
+function chiropractor_gallery_item_carousel(show_navigation, autoplay, unique_id, is_rtl) {
+    "use strict";
+    var slider_class = '.owl-gallery-item-carousel',
+    unique_slider_class = slider_class + unique_id;
+
+    if (!unique_id.length) {
+        unique_id = '';
+    }
+
+    jQuery(unique_slider_class).addClass('navigation_' + show_navigation);
+
+    jQuery(unique_slider_class).owlCarousel({
+        rtl: is_rtl,
+        dots:false,
+        loop:true,
+        margin:0,
+        autoplay: autoplay,
+        nav: show_navigation,
+        navText: [
+            "<i class='rt2 rt2-icon-chevron-thin-left'></i>",
+            "<i class='rt2 rt2-icon-chevron-thin-right'></i>"
+        ],
+        responsiveClass:true,
+        responsiveBaseElement:unique_slider_class,
+        responsive:{
+            0:{
+                items:1,
+                loop:true,
+                nav:true
+            },
+            800:{
+                items:2,
+                loop:true
+            },
+            1200:{
+                items:3,
+                loop:true
+            },
+            1600:{
+                items:4
+            }
+        }
+    });
+}
